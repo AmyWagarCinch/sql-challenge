@@ -13,17 +13,16 @@ CREATE TABLE "departments" (
 CREATE TABLE "dept_emp" (
     "emp_no" int   NOT NULL,
     "dept_no" varchar   NOT NULL,
-    CONSTRAINT "pk_dept_emp" PRIMARY KEY (
-        "emp_no"
+    CONSTRAINT "pk_dept_emp" unique (
+        "emp_no", "dept_no" 
      )
 );
-drop table dept_manager; 
 CREATE TABLE "dept_manager" (
-    "dept_no" varchar   NULL,
-    "emp_no" varchar   NULL--,
-    --CONSTRAINT "pk_dept_manager" PRIMARY KEY (
-        --"dept_no"
-    -- )
+    "dept_no" varchar   NOT NULL,
+	"emp_no" int   NOT NULL,
+        CONSTRAINT "pk_dept_manager" unique (
+        "dept_no", "emp_no"
+     )
 );
 
 CREATE TABLE "employees" (
